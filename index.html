@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chanchal's Closet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <button class="icon-btn" id="homeBtn" title="Home">🏠</button>
+      <h1 class="interactive-logo">👚 Chanchal's Closet</h1>
+    </div>
+    <div class="header-right">
+      <button class="icon-btn" id="searchBtn" title="Search">🔍</button>
+      <button class="icon-btn" id="menuBtn" title="Menu">☰</button>
+      <button class="icon-btn" id="cartBtn" title="Cart">🛒<span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <!-- Menu Drawer -->
+  <nav class="menu-drawer" id="menuDrawer">
+    <div class="menu-header">
+      <span>Categories</span>
+      <button class="close" id="closeMenu">&times;</button>
+    </div>
+    <ul>
+      <li><a href="#" data-section="indian">Indian</a></li>
+      <li><a href="#" data-section="western">Western</a></li>
+      <li><a href="#" data-section="indo-western">Indo-western</a></li>
+      <li><a href="#" data-section="party-wear">Party-wear</a></li>
+    </ul>
+  </nav>
+
+  <!-- Search Bar -->
+  <div class="search-bar" id="searchBar">
+    <input type="text" id="searchInput" placeholder="Search for products...">
+    <button id="searchClose">✖️</button>
+  </div>
+
+  <main>
+    <div class="main-flex">
+      <section class="products-section" id="productsSection">
+        <h2 id="sectionTitle">Shop New Arrivals</h2>
+        <div class="product-scroll" id="productScroll">
+          <!-- Products load here -->
+        </div>
+      </section>
+      <section class="checkout-section" id="checkoutSection" style="display:none;">
+        <h2>Checkout</h2>
+        <div id="cartItems"></div>
+        <form id="addressForm">
+          <label>Full Name</label>
+          <input type="text" required>
+          <label>Street Address</label>
+          <input type="text" required>
+          <label>City</label>
+          <input type="text" required>
+          <label>Pincode</label>
+          <input type="text" required>
+          <label>Phone</label>
+          <input type="text" required>
+          <h3>Payment</h3>
+          <label><input type="radio" name="payment" checked> Cash on Delivery</label>
+          <label><input type="radio" name="payment"> Credit/Debit Card</label>
+          <label><input type="radio" name="payment"> UPI</label>
+          <button type="submit">Place Order</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Chanchal's Closet</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
