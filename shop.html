@@ -1,0 +1,44 @@
+<!-- shop.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Chanchal's Closet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar (copy from index.html) -->
+  <nav class="navbar">
+    <div class="nav-logo">👚 Chanchal's Closet</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="cart.html" class="cart-link">🛒 <span id="cartCount">0</span></a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle">☰</button>
+  </nav>
+
+  <main>
+    <h1>Shop All Products</h1>
+    <div class="filters">
+      <button onclick="filterProducts('all')">All</button>
+      <button onclick="filterProducts('indian')">Indian</button>
+      <button onclick="filterProducts('western')">Western</button>
+      <button onclick="filterProducts('indo-western')">Indo-western</button>
+      <button onclick="filterProducts('party-wear')">Party-wear</button>
+    </div>
+    <div class="product-grid" id="shopProducts"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Chanchal's Closet</p>
+  </footer>
+  <script src="shop.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
