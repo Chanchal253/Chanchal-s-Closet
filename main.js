@@ -130,3 +130,23 @@ if (document.getElementById('newsletterForm')) {
 
 // --------- INITIALIZE CART COUNT ON EVERY PAGE ---------
 updateCartCount();
+document.getElementById('checkoutForm').onsubmit = function(e) {
+  // Before submitting, fill the hidden order field with cart data
+  var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  var orderSummary = cart.map(function(item, idx) {
+    return (idx+1) + ". " + item.title + " (₹" + item.price + ")";
+  }).join('\n');
+  document.getElementById('orderField').value = orderSummary || "Cart empty";
+  // (Optional) Clear cart after order
+  localStorage.removeItem('cart');
+  // Let the form submit to Formspree
+};
+document.getElementById('checkoutForm').onsubmit = function() {
+  var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  var orderSummary = cart.map(function(item, idx) {
+    return (idx+1) + ". " + item.title + " (₹" + item.price + ") x " + (item.qty || 1);
+  }).join('\n');
+  document.getElementById('orderField').value = orderSummary || "Cart empty";
+  // Optionally clear cart after order
+  localStorage.removeItem('cart');
+};

@@ -5,6 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Chanchal's Closet</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --primary: #FFC1CC;
+      --secondary: #6B5B95;
+      --accent: #FF6B6B;
+      --background: #F9F6F2;
+      --text: #333;
+    }
+    body {
+      background: var(--background);
+    }
+    .contact-hero {
+      background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem 2rem 1rem;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 6px 24px #6B5B9520;
+      margin-bottom: 2rem;
+    }
+    .contact-hero h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
+    .contact-hero p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+    .contact-info {
+      max-width: 450px;
+      margin: 2rem auto 1.5rem auto;
+      padding: 1.5rem 2rem;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px #6B5B9510;
+      color: var(--secondary);
+      font-size: 1.08rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .contact-info strong {
+      color: var(--accent);
+    }
+    .contact-form {
+      max-width: 450px;
+      margin: 2rem auto 3rem auto;
+      background: #fff;
+      padding: 2rem 2rem 1.5rem 2rem;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px #6B5B9515;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      transition: box-shadow 0.2s;
+    }
+    .contact-form label {
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 0.2rem;
+      letter-spacing: 0.5px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.7rem 1.1rem;
+      border-radius: 8px;
+      border: 1.5px solid #e0d7ef;
+      font-size: 1.05rem;
+      background: #f9f6f2;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 2px 10px #6B5B9540;
+      background: #fff;
+    }
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 90px;
+      max-height: 240px;
+    }
+    .contact-form button {
+      align-self: flex-end;
+      margin-top: 0.5rem;
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
+      color: #fff;
+      border: none;
+      padding: 0.7rem 2.2rem;
+      border-radius: 8px;
+      font-size: 1.07rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 10px #FF6B6B10;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .contact-form button:hover {
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      box-shadow: 0 4px 16px #FF6B6B20;
+    }
+    @media (max-width: 600px) {
+      .contact-hero {
+        padding: 2rem 0.5rem 1.2rem 0.5rem;
+        font-size: 1.1rem;
+        border-radius: 0 0 20px 20px;
+      }
+      .contact-info, .contact-form {
+        padding: 1rem 0.7rem;
+        border-radius: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -19,24 +133,43 @@
     </ul>
     <button class="nav-toggle" id="navToggle">☰</button>
   </nav>
-  <main>
+
+  <section class="contact-hero">
     <h1>Contact Us</h1>
-    <p>Email: support@chanchalscloset.com</p>
-    <p>Phone: +91-90000-00000</p>
-    <form id="contactForm" style="max-width:400px;margin-top:1rem;">
-      <label>Your Name</label>
-      <input type="text" required>
-      <label>Your Email</label>
-      <input type="email" required>
-      <label>Message</label>
-      <textarea required rows="4"></textarea>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-  </main>
+    <p>We'd love to hear from you! Whether you have a question about products, orders, or anything else, our team is ready to answer all your questions.</p>
+  </section>
+
+ <div class="contact-info">
+  <div><strong>Email:</strong> <a href="mailto:chanchalbairagi25@gmail.com">chanchalvaishnav8877@gmail.com</a></div>
+  <div><strong>Phone:</strong> <a href="tel:+917887377567">+91-7887377567</a></div>
+  <div><strong>Address:</strong> 123 Fashion Street, Mumbai, India</div>
+</div>
+
+
+  <form action="https://formspree.io/f/mgvywqyw" id="contactForm" class="contact-form" autocomplete="off">
+    <label for="contact-name">Your Name</label>
+    <input type="text" id="contact-name" name="name" required placeholder="Enter your name">
+
+    <label for="contact-email">Your Email</label>
+    <input type="email" id="contact-email" name="email" required placeholder="Enter your email">
+
+    <label for="contact-message">Message</label>
+    <textarea id="contact-message" name="message" required placeholder="Type your message here..."></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
   <footer>
     <p>&copy; 2025 Chanchal's Closet</p>
   </footer>
   <script>
+    // Navbar toggle for mobile
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+      navToggle.onclick = () => navLinks.classList.toggle('open');
+    }
+    // Contact form handler
     document.getElementById('contactForm').onsubmit = function(e) {
       e.preventDefault();
       alert('Thank you for contacting us!');

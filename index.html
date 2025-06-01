@@ -3,14 +3,284 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chanchal's Closet</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Chanchal's Closet | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FFC1CC;
+      --secondary: #6B5B95;
+      --accent: #FF6B6B;
+      --background: #F9F6F2;
+      --text: #333;
+    }
+    body {
+      background: var(--background);
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 0.7rem 1.5rem;
+      box-shadow: 0 2px 12px #6B5B9510;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 2rem;
+      user-select: none;
+    }
+    .logo-icon {
+      font-size: 2.2rem;
+      filter: drop-shadow(0 2px 8px #FFC1CC55);
+    }
+    .logo-bold {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.1rem;
+      color: #FF6B6B;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 18px #FFC1CC55, 0 1px 0 #fff;
+    }
+    .logo-script {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2rem;
+      color: #6B5B95;
+      margin-left: 0.3rem;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #FFC1CC 30%, #6B5B95 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 18px #6B5B9555;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--secondary);
+      font-weight: 700;
+      font-size: 1.08rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links li a.active,
+    .nav-links li a:hover {
+      background: var(--primary);
+      color: var(--accent);
+    }
+    .cart-link {
+      font-size: 1.2rem;
+      position: relative;
+    }
+    #cartCount {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.85rem;
+      padding: 0 6px;
+      border-radius: 12px;
+      position: absolute;
+      top: -10px;
+      right: -16px;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--secondary);
+      cursor: pointer;
+    }
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 180px;
+        box-shadow: 0 4px 16px #6B5B9515;
+        padding: 1rem 0;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+    }
+    .hero {
+      background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 3.5rem 1rem 2.2rem 1rem;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 6px 24px #6B5B9520;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.7rem;
+      margin: 0 0 1rem 0;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 18px #6B5B9555;
+    }
+    .hero p {
+      font-size: 1.18rem;
+      margin: 0 0 1.5rem 0;
+      opacity: 0.95;
+      font-weight: 500;
+    }
+    .hero .shop-btn {
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
+      color: #fff;
+      border: none;
+      padding: 0.8rem 2.3rem;
+      border-radius: 8px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 10px #FF6B6B10;
+      transition: background 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+    .hero .shop-btn:hover {
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      box-shadow: 0 4px 16px #FF6B6B20;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--secondary);
+      margin-top: 2.5rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto 3rem auto;
+      padding: 0 1.5rem;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px #6B5B9515;
+      padding: 1.3rem 1rem 1.1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.18s, box-shadow 0.18s;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px #FF6B6B22;
+    }
+    .product-img {
+      width: 150px;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 10px #FFC1CC33;
+      background: #f9f6f2;
+    }
+    .product-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.4rem;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    .product-price {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.07rem;
+      margin-bottom: 0.7rem;
+    }
+    .product-card .add-btn {
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.3rem;
+      border-radius: 7px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 10px #FF6B6B10;
+      transition: background 0.2s, box-shadow 0.2s;
+      margin-top: 0.2rem;
+    }
+    .product-card .add-btn:hover {
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      box-shadow: 0 4px 16px #FF6B6B20;
+    }
+    footer {
+      background: #fff;
+      color: #aaa;
+      text-align: center;
+      padding: 1.1rem 0 0.7rem 0;
+      font-size: 1rem;
+      border-top: 1px solid #f1e9ef;
+      margin-top: 2rem;
+    }
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 0.5rem 0.5rem;
+      }
+      .nav-logo {
+        font-size: 1.2rem;
+        gap: 0.3rem;
+      }
+      .logo-bold, .logo-script {
+        font-size: 1.2rem;
+      }
+      .logo-icon {
+        font-size: 1.3rem;
+      }
+      .hero {
+        padding: 1.7rem 0.5rem 1rem 0.5rem;
+        border-radius: 0 0 18px 18px;
+      }
+      .products-grid {
+        gap: 1.1rem;
+        padding: 0 0.3rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
-    <div class="nav-logo">👚 Chanchal's Closet</div>
+    <div class="nav-logo">
+      <span class="logo-icon">👚</span>
+      <span class="logo-bold">Chanchal’s</span>
+      <span class="logo-script">Closet</span>
+    </div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="shop.html">Shop</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="about.html">About</a></li>
@@ -20,82 +290,86 @@
     <button class="nav-toggle" id="navToggle">☰</button>
   </nav>
 
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Discover Your Style</h1>
-      <p>Trendy Indian, Western, Indo-western, and Party-wear for every occasion.</p>
-      <a href="shop.html" class="btn">Shop Now</a>
-    </div>
-    <img src="https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&w=800&q=80" alt="Fashion" class="hero-img">
-  </header>
-
-  <section class="features">
-    <div class="feature">
-      <span>🚚</span>
-      <h3>Free Shipping</h3>
-      <p>On all orders over ₹999</p>
-    </div>
-    <div class="feature">
-      <span>🔒</span>
-      <h3>Secure Payment</h3>
-      <p>100% secure payment</p>
-    </div>
-    <div class="feature">
-      <span>↩️</span>
-      <h3>Easy Returns</h3>
-      <p>7-day return policy</p>
-    </div>
+  <section class="hero">
+    <h1>Chanchal’s Closet</h1>
+    <p>Discover the latest trends and timeless classics. Shop unique, handpicked styles curated just for you.</p>
+    <a href="shop.html" class="shop-btn">Shop Now</a>
   </section>
 
-  <section class="products">
-    <h2>Featured Products</h2>
-    <div class="product-grid" id="featuredProducts">
-      <!-- JS will inject product cards here -->
-    </div>
-    <a href="shop.html" class="btn more-btn">View All Products</a>
-  </section>
-
-  <section class="banner">
-    <div class="banner-content">
-      <h2>New Arrivals</h2>
-      <p>Check out the latest Indo-western trends!</p>
-      <a href="shop.html" class="btn">Explore</a>
-    </div>
-    <img src="https://assets.utsavfashion.com/media/catalog/product/c/r/crop-top-lehenga-in-pink-1-1-1-v1.jpg" alt="New Arrivals">
-  </section>
-
-  <section class="newsletter">
-    <h2>Subscribe for Updates</h2>
-    <form id="newsletterForm">
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit">Subscribe</button>
-    </form>
-  </section>
+  <div class="section-title">Featured Products</div>
+  <div class="products-grid" id="featuredProducts">
+    <!-- Products will be loaded by JS below -->
+  </div>
 
   <footer>
-    <div class="footer-cols">
-      <div>
-        <h3>Chanchal's Closet</h3>
-        <p>Trendy fashion for every woman.</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="cart.html">Cart</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <p>Email: support@chanchalscloset.com</p>
-        <p>Phone: +91-90000-00000</p>
-      </div>
-    </div>
-    <p class="footer-copy">&copy; 2025 Chanchal's Closet</p>
+    &copy; 2025 Chanchal's Closet &mdash; All rights reserved.
   </footer>
-  <script src="script.js"></script>
-  <script src="main.js"></script>
 
+  <script>
+    // Navbar toggle for mobile
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.onclick = () => navLinks.classList.toggle('open');
+
+    // Cart count
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      document.getElementById('cartCount').textContent = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+    }
+    updateCartCount();
+
+    // Sample featured products (replace with your real products or fetch from backend)
+    const products = [
+      {
+        title: "Pastel Pink Kurti",
+        price: 799,
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=facearea&w=400&q=80"
+      },
+      {
+        title: "Boho Maxi Dress",
+        price: 1299,
+        image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=400&q=80"
+      },
+      {
+        title: "Classic Blue Denim",
+        price: 999,
+        image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=facearea&w=400&q=80"
+      },
+      {
+        title: "Summer Floral Top",
+        price: 599,
+        image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=facearea&w=400&q=80"
+      }
+    ];
+
+    function renderProducts() {
+      const grid = document.getElementById('featuredProducts');
+      grid.innerHTML = products.map((p, idx) => `
+        <div class="product-card">
+          <img class="product-img" src="${p.image}" alt="${p.title}">
+          <div class="product-title">${p.title}</div>
+          <div class="product-price">₹${p.price}</div>
+          <button class="add-btn" onclick="addToCart(${idx})">Add to Cart</button>
+        </div>
+      `).join('');
+    }
+    renderProducts();
+
+    // Add to cart logic
+    function addToCart(idx) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const prod = products[idx];
+      const found = cart.find(item => item.title === prod.title);
+      if (found) {
+        found.qty = (found.qty || 1) + 1;
+      } else {
+        cart.push({...prod, qty: 1});
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+      alert(`Added "${prod.title}" to cart!`);
+    }
+    window.addToCart = addToCart;
+  </script>
 </body>
 </html>

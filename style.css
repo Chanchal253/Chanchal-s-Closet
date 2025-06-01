@@ -410,3 +410,8 @@ footer {
 .filters button:hover {
   background: var(--accent);
 }
+.product-details,
+.view-btn,
+.reviews {
+  display: block;
+}
