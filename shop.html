@@ -6,11 +6,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop | Chanchal's Closet</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Responsive main content container for shop/blog */
+.shop-section, .blog-section, .main-container {
+  max-width: 600px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 1rem;
+  background:  #F9F6F2;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(107, 91, 149, 0.08);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Responsive button style */
+.checkout-btn, .shop-btn, .blog-btn {
+  width: 100%;
+  max-width: 350px;
+  display: block;
+  margin: 1rem auto 0 auto;
+  font-size: 1.1rem;
+  padding: 1rem 0;
+  border-radius: 24px;
+  text-align: center;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Responsive typography and padding for mobile */
+@media (max-width: 600px) {
+  .shop-section, .blog-section, .main-container {
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+  .checkout-btn, .shop-btn, .blog-btn {
+    font-size: 1rem;
+    padding: 0.8rem 0;
+    max-width: 100%;
+  }
+}
+
+/* Optional: Prevent logo/heading overflow */
+.nav-logo, .logo-bold, .logo-script, h1, h2 {
+  word-break: break-word;
+  min-width: 0;
+  max-width: 100%;
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.filter-buttons-scroll button {
+  flex: 1 1 120px;
+  min-width: 90px;
+  max-width: 180px;
+  padding: 0.7rem 1.2rem;
+  border-radius: 20px;
+  border: none;
+  background: #ffc0cb;
+  color: #70342B;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+body{
+  background-color: #Ffff;
+}
+
+
+  </style>
 </head>
 <body>
   <!-- Navbar (copy from index.html) -->
   <nav class="navbar">
-    <div class="nav-logo">👚 Chanchal's Closet</div>
+    <div class="nav-logo" id="homeLogo" style="cursor:pointer;">
+      <span class="logo-icon">👚</span>
+      <span class="logo-bold">Chanchal’s</span>
+      <span class="logo-script">Closet</span>
+  </div>
+    </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="shop.html" class="active">Shop</a></li>
@@ -23,6 +112,9 @@
   </nav>
 
   <main>
+    <section class="shop-section">
+    <!-- Shop content here -->
+  </section>
     <h1>Shop All Products</h1>
     <div class="filters">
       <button onclick="filterProducts('all')">All</button>
@@ -39,6 +131,12 @@
   </footer>
   <script src="shop.js"></script>
   <script src="main.js"></script>
+  <script>
+document.getElementById('homeLogo').onclick = function() {
+  window.location.href = 'index.html';
+};
+</script>
+
 
 </body>
 </html>

@@ -4,41 +4,224 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog | Chanchal's Closet</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="blog-style.css">
+  <style>
+    /* Responsive main content container for shop/blog */
+.shop-section, .blog-section, .main-container {
+  max-width: 600px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(107, 91, 149, 0.08);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Responsive button style */
+.checkout-btn, .shop-btn, .blog-btn {
+  width: 100%;
+  max-width: 350px;
+  display: block;
+  margin: 1rem auto 0 auto;
+  font-size: 1.1rem;
+  padding: 1rem 0;
+  border-radius: 24px;
+  text-align: center;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Responsive typography and padding for mobile */
+@media (max-width: 600px) {
+  .shop-section, .blog-section, .main-container {
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+  .checkout-btn, .shop-btn, .blog-btn {
+    font-size: 1rem;
+    padding: 0.8rem 0;
+    max-width: 100%;
+  }
+}
+
+/* Optional: Prevent logo/heading overflow */
+.nav-logo, .logo-bold, .logo-script, h1, h2 {
+  word-break: break-word;
+  min-width: 0;
+  max-width: 100%;
+
+  
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  max-width: 90vw;
+  width: 340px;
+  box-shadow: 0 4px 24px rgba(107, 91, 149, 0.18);
+  text-align: center;
+  position: relative;
+}
+.close-modal {
+  position: absolute; right: 1rem; top: 1rem;
+  font-size: 1.5rem; cursor: pointer; color: #ff758c;
+}
+
+
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-logo">👚 Chanchal's Closet</div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="blog.html" class="active">Blog</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="cart.html" class="cart-link">🛒 <span id="cartCount">0</span></a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle">☰</button>
-  </nav>
-  <main>
-    <h1>Fashion Blog</h1>
-    <div class="blog-list">
+  <nav class="navbar"  style = "background-color: pink;">
+  <div class="nav-logo"  style = "background-color: pink;" id="homeLogo" style="cursor:pointer;">
+    <span class="logo-icon" style = "background-color: pink;">👚</span>
+    <span class="logo-bold"  style = "background-color: pink;">Chanchal’s</span>
+    <span class="logo-script"  style = "background-color: pink;">Closet</span>
+  </div>
+  
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="cart.html" class="cart-link">🛒 <span id="cartCount">0</span></a></li>
+  </ul>
+</nav>
+ <main>
+    <section class="blog-section">
+    <!-- Blog content here -->
+  </section>
+    <header class="blog-header">
+      <h1>Fashion Blog</h1>
+      <p class="subtitle">Latest trends, style tips, and inspiration</p>
+    </header>
+    <section class="blog-list">
       <article class="blog-post">
-        <img src="https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&w=400&q=80" alt="Blog 1" style="width:180px;border-radius:8px;">
+        <div class="blog-image-container">
+          <img src="https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&w=400&q=80" alt="Blog 1">
+        </div>
         <h2>5 Indo-Western Looks for Every Occasion</h2>
-        <p>Discover how to blend Indian tradition with Western flair for stunning party outfits!</p>
-        <a href="#">Read More</a>
+        <p>Discover how to blend Indian tradition with Western flair for stunning party outfits! <a href="#" class="blog-link">Read full article →</a></p>
       </article>
       <article class="blog-post">
-        <img src="https://images.pexels.com/photos/415318/pexels-photo-415318.jpeg?auto=compress&w=400&q=80" alt="Blog 2" style="width:180px;border-radius:8px;">
+        <div class="blog-image-container">
+          <img src="https://images.pexels.com/photos/415318/pexels-photo-415318.jpeg?auto=compress&w=400&q=80" alt="Blog 2">
+        </div>
         <h2>How to Accessorize Your Saree</h2>
-        <p>Tips and tricks to make your saree stand out with accessories and jewelry.</p>
-        <a href="#">Read More</a>
+        <p>Tips and tricks to make your saree stand out with accessories and jewelry. <a href="#" class="blog-link">Read full article →</a></p>
       </article>
-    </div>
+      <article class="blog-post">
+        <div class="blog-image-container">
+          <img src="https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&w=400&q=80" alt="Blog 3">
+        </div>
+        <h2>Summer Essentials: Must-Have Outfits</h2>
+        <p>Stay cool and stylish with these summer wardrobe essentials. <a href="#" class="blog-link">Read full article →</a></p>
+      </article>
+    </section>
   </main>
   <footer>
     <p>&copy; 2025 Chanchal's Closet</p>
   </footer>
-  <script src="main.js"></script>
+  <!-- Article Preview Modal -->
+<div id="blogModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" id="closeModal">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalBody"></p>
+  </div>
+</div>
+<!-- Blog Article Modal -->
+<div id="blogModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" id="closeModal">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalBody"></p>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const articles = [
+    {
+      title: "5 Indo-Western Looks for Every Occasion",
+      body: "Explore how to blend Indian tradition with Western flair for every party and event. Get inspired by our handpicked looks and styling tips!"
+    },
+    {
+      title: "How to Accessorize Your Saree",
+      body: "Learn the secrets to making your saree pop with the right accessories and jewelry. From classic to bold, find your style!"
+    },
+    {
+      title: "Summer Essentials: Must-Have Outfits",
+      body: "Beat the heat with these cool and stylish summer wardrobe essentials. Stay comfortable and chic all season long!"
+    }
+  ];
+
+  document.querySelectorAll('.blog-link').forEach((link, idx) => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('modalTitle').textContent = articles[idx].title;
+      document.getElementById('modalBody').textContent = articles[idx].body;
+      document.getElementById('blogModal').style.display = 'flex';
+    });
+  });
+
+  document.getElementById('closeModal').onclick = function() {
+    document.getElementById('blogModal').style.display = 'none';
+  };
+
+  window.onclick = function(event) {
+    if (event.target == document.getElementById('blogModal')) {
+      document.getElementById('blogModal').style.display = 'none';
+    }
+  };
+});
+</script>
+<script>
+document.getElementById('homeLogo').onclick = function() {
+  window.location.href = 'index.html';
+};
+</script>
+<script>
+// Remove outline and user-select highlight from .nav-logo
+(function() {
+  var style = document.createElement('style');
+  style.innerHTML = `
+    .nav-logo {
+      outline: none !important;
+      box-shadow: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+      -webkit-user-select: none !important;
+      user-select: none !important;
+    }
+    .nav-logo:focus, .nav-logo:active {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  `;
+  document.head.appendChild(style);
+})();
+</script>
+
+
+
+
 </body>
 </html>

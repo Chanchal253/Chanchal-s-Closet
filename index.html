@@ -274,7 +274,7 @@
 </head>
 <body>
   <nav class="navbar">
-    <div class="nav-logo">
+    <div class="nav-logo" id="homeLogo" style="cursor:pointer;">
       <span class="logo-icon">👚</span>
       <span class="logo-bold">Chanchal’s</span>
       <span class="logo-script">Closet</span>
@@ -371,5 +371,33 @@
     }
     window.addToCart = addToCart;
   </script>
+  <script>
+document.getElementById('homeLogo').onclick = function() {
+  window.location.href = 'index.html';
+};
+</script>
+<script>
+// Remove outline and user-select highlight from .nav-logo
+(function() {
+  var style = document.createElement('style');
+  style.innerHTML = `
+    .nav-logo {
+      outline: none !important;
+      box-shadow: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+      -webkit-user-select: none !important;
+      user-select: none !important;
+    }
+    .nav-logo:focus, .nav-logo:active {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  `;
+  document.head.appendChild(style);
+})();
+</script>
+
+
+
 </body>
 </html>
