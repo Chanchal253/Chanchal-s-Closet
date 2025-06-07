@@ -99,7 +99,7 @@ body{
       <span class="logo-bold">Chanchal’s</span>
       <span class="logo-script">Closet</span>
   </div>
-    </div>
+   
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="shop.html" class="active">Shop</a></li>
@@ -135,6 +135,26 @@ body{
 document.getElementById('homeLogo').onclick = function() {
   window.location.href = 'index.html';
 };
+</script>
+<script>
+  // Remove outline and user-select highlight from .nav-logo
+(function() {
+  var style = document.createElement('style');
+  style.innerHTML = `
+    .nav-logo {
+      outline: none !important;
+      box-shadow: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+      -webkit-user-select: none !important;
+      user-select: none !important;
+    }
+    .nav-logo:focus, .nav-logo:active {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  `;
+  document.head.appendChild(style);
+})();
 </script>
 
 
