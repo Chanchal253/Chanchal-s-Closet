@@ -156,7 +156,24 @@ document.getElementById('homeLogo').onclick = function() {
   document.head.appendChild(style);
 })();
 </script>
+<script>
+  const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
 
+navToggle.addEventListener('click', function(e) {
+  e.stopPropagation();
+  navLinks.classList.toggle('show');
+});
+
+document.addEventListener('click', function(e) {
+  if (navLinks.classList.contains('show') &&
+      !navToggle.contains(e.target) &&
+      !navLinks.contains(e.target)) {
+    navLinks.classList.remove('show');
+  }
+});
+
+</script>
 
 </body>
 </html>
